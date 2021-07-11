@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <title>Login</title>
+        <link rel="stylesheet" href="">
+        <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+  form{
+      position:absolute;
+      top:30%;
+      left:37.0%;
+      text-align:center;
+      width:25%;
+      background-color:black;
+      padding:10px;
+      padding-right:50px;
+      padding-left:50px;
+
+  }
+ body{
+      background-image:url({% static 'bg.png' %})
+      
+  }
+  img{
+     
+      padding:10px;
+}
+  .logo {
+  position: absolute;
+  left: 5%;
+  top: 3vw;
+  max-width: 100%;
+  height: auto;
+  width: auto;
+}
+#uform{
+    background-color:black;
+    color:white;
+    font-family:Poppins, Helvetica, sans-serif;
+    margin:20px;
+   
+}
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: none;
+}
+a{
+  color: aqua;
+  background-color: transparent;
+  text-decoration: none;
+}
+  </style>
+    </head>
+    <body>
+    <div class="logo">
+          <img src="{% static 'logo.svg' %}">
+         </div>
+         <div id='uform'>
+      <form method='POST'>
+       {% csrf_token %}
+  <div class="form-group"><h1>Login!</h1><br>
+
+  
+   <div class="container">
+        <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+            <button style="background-color:lime; color:blue" class="btn btn-outline-info" type="submit"><b>Login</b></button> <br>
+        </form>
+  <h6><br>New to AlcherStream?<a href="/register">  Register</a></h6>
+</form>
+</div>
+</div>
+</div>
+       
+    </body>
+</html>

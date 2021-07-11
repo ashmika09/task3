@@ -1,0 +1,89 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Register</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+        #registerform{
+            text-align: center;
+            margin-top:10%;
+        }
+    
+        input[type=submit] {
+  width: 10%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius:12px;
+  font-family:Poppins, Helvetica, sans-serif;
+}
+img{
+    
+      padding:10px;
+}
+body{
+      background-image:url({% static 'bg.png' %})
+      
+  }
+.logo {
+  position: absolute;
+  left: 5%;
+  top: 3vw;
+  max-width: 100%;
+  height: auto;
+  width: auto;
+}
+#uform{
+    background-color:black;
+    color:white;
+    font-family:Poppins, Helvetica, sans-serif;
+    
+   
+}
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: none;
+}
+a{
+  color: aqua;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+        </style>
+    </head>
+    <body><div class="logo">
+          <img src="{% static 'logo.svg' %}">
+         </div>
+    <div id='uform'>
+        <form method="POST" id='registerform'>
+       {% csrf_token %}
+       <h1> Register Now!</h1><br><br>
+         {{form.username.label}}
+        {{form.username}}<br><br>
+
+        {{form.password1.label}}
+        {{form.password1}}<br><br>
+
+        {{form.password2.label}}
+        {{form.password2}}<br><br> 
+        {% comment %} {{ form }} {% endcomment %}
+        <input type="submit" name="Create User">
+        {{form.errors}}
+       
+        <h4>Already a user? <a href='/login'>Login</a></h4>
+        </form>
+        </div>
+        
+
+        
+        <script src="" async defer></script>
+    </body>
+</html>
